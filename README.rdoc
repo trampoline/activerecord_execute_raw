@@ -1,6 +1,11 @@
 = activerecord_execute_raw
 
-Description goes here.
+ActiveRecord-JDBC's implementation of connection.execute() test the executed sql, and
+if it's an insert statement it fetches inserted ids after the statement is executed. 
+this is a problem if you are inserting millions of rows
+
+activerecord_execute_raw creates a connection.execute_raw() method which bypasses the
+id fetch
 
 == Note on Patches/Pull Requests
  
@@ -14,4 +19,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2010 mccraig mccraig of the clan mccraig. See LICENSE for details.
+Copyright (c) 2010 Trampoline Systems Ltd. See LICENSE for details.

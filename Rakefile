@@ -5,10 +5,11 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "activerecord_execute_raw"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{execute raw sql on db from ActiveRecord [without fetching inserted ids as done by ActiveRecord-JDBC]}
+    gem.description = %Q{ActiveRecord-JDBC fetches ids of inserted records when you call connection.execute(). this
+                         gem adds a connection.execute_raw() method which does not fetch inserted ids}
     gem.email = "mccraigmccraig@googlemail.com"
-    gem.homepage = "http://github.com/mccraigmccraig/activerecord_execute_raw"
+    gem.homepage = "http://github.com/trampoline/activerecord_execute_raw"
     gem.authors = ["mccraig mccraig of the clan mccraig"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
     gem.add_development_dependency "yard", ">= 0"
