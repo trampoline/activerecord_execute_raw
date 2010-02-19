@@ -7,7 +7,14 @@ this is a problem if you are inserting millions of rows
 activerecord_execute_raw creates a connection.execute_raw() method which bypasses the
 id fetch
 
-== Note on Patches/Pull Requests
+== Install
+
+gem source --add http://gemcutter.org
+gem install activerecord_execute_raw
+
+== Note 
+
+on Patches/Pull Requests
  
 * Fork the project.
 * Make your feature addition or bug fix.
