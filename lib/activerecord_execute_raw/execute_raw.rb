@@ -12,17 +12,21 @@ module ActiveRecord
       end
     end
 
-    # then override the base method on the JdbcAdapter
-    class JdbcAdapter < AbstractAdapter
-      def execute_raw(sql, name = nil)
-        log(sql, name) do
-          if ActiveRecord::ConnectionAdapters::JdbcConnection::select?(sql)
-            @connection.execute_query(sql)
-          else
-            @connection.execute_update(sql)
+    if defined?(JRUBY_VERSION)
+
+      # then override the base method on the JdbcAdapter
+      class JdbcAdapter < AbstractAdapter
+        def execute_raw(sql, name = nil)
+          log(sql, name) do
+            if ActiveRecord::ConnectionAdapters::JdbcConnection::select?(sql)
+              @connection.execute_query(sql)
+            else
+              @connection.execute_update(sql)
+            end
           end
         end
       end
+
     end
   end
 end
